@@ -1,0 +1,56 @@
+<h4><{$smarty.const._MD_USERSEARCH_1}></h4>
+<div style="padding: 5px;">
+  <fieldset>
+    <legend><{$smarty.const._MD_USERSEARCH_2}></legend>
+    <form name="searchform" action="index.php" method="get">
+    <{$smarty.const._MD_USERSEARCH_3}><{xoops_input type=text name=uname size=30 value=$mActionform->get('uname')}>&nbsp;&nbsp;
+    <{xoops_input type=radio name=searchtype id=searchtype value=0 default=$mActionform->get('searchtype')}><label for="searchtype_0"><{$smarty.const._MD_USERSEARCH_4}></label>&nbsp;&nbsp;
+    <{xoops_input type=radio name=searchtype id=searchtype value=1 default=$mActionform->get('searchtype')}><label for="searchtype_1"><{$smarty.const._MD_USERSEARCH_5}></label>&nbsp;&nbsp;
+    <{xoops_input type=radio name=searchtype id=searchtype value=2 default=$mActionform->get('searchtype')}><label for="searchtype_2"><{$smarty.const._MD_USERSEARCH_6}></label>
+    <{xoops_input type=hidden name=dosearch value=1}>
+    <{xoops_input type=hidden name=action value=search}>
+    <input type="submit" value="<{$smarty.const._SUBMIT}>" class="formButton" />
+    </form>
+  </fieldset>
+</div>
+<hr />
+<{if $listdata!=false}>
+<form method="post" action="index.php?action=favorites">
+<table cellspacing="1" style="background-color:#222222;">
+<{counter start=12 direction=down assign=num}>
+<{foreach item=user from=$listdata.udata}>
+<{counter}>
+<{cycle name='ftro' values='<tr>,,,'}>
+<td width="25%" class="even">
+<a href="<{$xoops_url}>/userinfo.php?uid=<{$user->get('uid')}>">
+<{if $user->get('user_avatar') != "blank.gif" }>
+<img src="<{$smarty.const.XOOPS_UPLOAD_URL}>/<{$user->getShow('user_avatar')}>" alt="Avatar" title="Avatar" />
+<{else}>
+<img src="<{$smarty.const.XOOPS_URL}>/modules/user/images/no_avatar.gif" alt="No Avatar" title="No Avatar" />
+<{/if}>
+<br />
+<{$user->getShow('uname')}>
+</a>
+<br />
+<a href="<{$xoops_url}>/modules/myfriend/index.php?action=application&amp;auid=<{$user->get('uid')}>"><{$smarty.const._MD_MYFRIEND_TO_APP}></a>
+<br />
+<input type="checkbox" name="adduid[]" id="uid<{$user->get('uid')}>" value="<{$user->get('uid')}>" />
+<label for="uid<{$user->get('uid')}>"><{$smarty.const._MD_MYFRIEND_ADDFAVORITES}></label>
+</td>
+<{cycle name='ftrc' values=',,,</tr>'}>
+<{/foreach}>
+<{section name=myfriend loop=$num}>
+<{cycle name='ftro' values='<tr>,,,'}>
+<td width="25%" class="even">&nbsp;</td>
+<{cycle name='ftrc' values=',,,</tr>'}>
+<{/section}>
+<tr><td colspan="4" align="center" class="odd">
+<input type="hidden" name="cmd" value="add" />
+<input type="submit" value="<{$smarty.const._MD_MYFRIEND_ADDFAVORITES}>" />
+</td></tr>
+</table>
+</form>
+<div class="pagenavi"><{xoops_pagenavi pagenavi=$listdata.pagenavi}></div>
+<{else}>
+<div><{$smarty.const._MD_USERSEARCH_8}></div>
+<{/if}>

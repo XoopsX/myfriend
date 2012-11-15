@@ -1,0 +1,33 @@
+<div>
+<input type="button" value="<{$smarty.const._MD_MYFRIEND_INVITATION}>" style="color:#FFFFFF; background-color:#000053;" onclick="javascript:location.href='index.php?action=invitation'" />
+</div>
+<hr />
+<div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>
+<br />
+<{if $ListData}>
+<div class="head"><{$smarty.const._MD_MYFRIEND_MYFRIEND_LIST}></div>
+<div class="odd">
+<ul>
+<{foreach item=item from=$ListData}>
+<li><a href="<{$xoops_url}>/userinfo.php?uid=<{$item->get('uid')}>"><{$item->get('uname')|xoops_escape}></a></li>
+<{/foreach}>
+</ul>
+</div>
+<{else}>
+<div class="outer even"><{$smarty.const._MD_MYFRIEND_NOFRIEND}></div>
+<{/if}>
+<br />
+<div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>
+<hr />
+<{if $invidata}>
+<div class="head"><{$smarty.const._MD_MYFRIEND_INVI_USER}></div>
+<div class="even">
+<ul>
+<{foreach item=invi from=$invidata}>
+<li><{$invi.email}>&nbsp;(<{$invi.formattedDate}>)&nbsp;&nbsp;<a href="index.php?action=idelete&amp;id=<{$invi.id}>"><{$smarty.const._DELETE}></a></li>
+<{/foreach}>
+</ul>
+</div>
+<{else}>
+<div class="outer even"><{$smarty.const._MD_MYFRIEND_NOT_INVI}></div>
+<{/if}>

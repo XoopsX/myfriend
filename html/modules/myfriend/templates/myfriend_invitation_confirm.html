@@ -1,0 +1,16 @@
+<form method="post" action="index.php?action=invitation">
+<{xoops_token form=$ActionForm}>
+<input type="hidden" name="cmd" value="send" />
+<table class="outer">
+<tr>
+<td class="head"><{$smarty.const._MD_MYFRIEND_INVI_MAIL}></td>
+<td class="even"><{$ActionForm->get('email')}></td>
+</tr>
+<tr>
+<td class="head"><{$smarty.const._MD_MYFRIEND_AISATSU}></td>
+<td class="odd"><{$ActionForm->get('note')|xoops_escape|nl2br}></td>
+</tr>
+<tr><td colspan="2" style="text-align: center;"><input type="submit" value="<{$smarty.const._MD_MYFRIEND_SEND}>" /></td>
+</tr>
+</table>
+</form>

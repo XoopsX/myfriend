@@ -1,0 +1,13 @@
+<h4><{$titlemsg}></h4>
+<form method="post" action="index.php?action=application">
+<{xoops_token form=$ActionForm}>
+<input type="hidden" name="auid" value="<{$auser->get('uid')}>" />
+<table class="outer">
+<tr>
+<td class="head"><{$smarty.const._MD_MYFRIEND_AISATSU}></td>
+<td class="odd"><textarea name="note" cols="50" rows="5"></textarea></td>
+</tr>
+<tr><td colspan="2" style="text-align: center;"><input type="submit" value="<{$smarty.const._MD_MYFRIEND_SEND}>" /></td>
+</tr>
+</table>
+</form>

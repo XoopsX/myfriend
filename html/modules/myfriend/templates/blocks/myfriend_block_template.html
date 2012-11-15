@@ -1,0 +1,7 @@
+<{if count($block)>0}>
+<ul>
+<{foreach item=newdata from=$block}>
+<li><a href="<{$newdata.url}>" style="color:#dd0000;"><{$newdata.title}></a></li>
+<{/foreach}>
+</ul>
+<{/if}>

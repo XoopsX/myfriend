@@ -1,0 +1,23 @@
+<h4><{$auser->getShow('uname')}><{$smarty.const._MD_MYFRIEND_FROM_APP}></h4>
+<fieldset>
+  <legend><{$smarty.const._MD_MYFRIEND_MESSAGE}></legend>
+  <{$modObj->getShow('note')}>
+</fieldset>
+<br />
+<form name="postform" method="post" action"index.php?action=approval">
+<input type="hidden" name="Denial" value="0" />
+<input type="hidden" name="id" value="<{$modObj->getShow('id')}>" />
+<table class="outer">
+<tr><td class="head"><{$smarty.const._MD_MYFRIEND_MESSAGE}></td>
+<td class="even"><textarea cols="40" rows="8"></textarea>
+<br />
+<{$smarty.const._MD_MYFRIEND_MESSAGE_NOTICE}>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="odd" style="text-align:center;"><input type="submit" name="subbtn" value="<{$smarty.const._MD_MYFRIEND_APPROVAL}>" />&nbsp;&nbsp;&nbsp;
+<input type="button" name="btn" value="<{$smarty.const._MD_MYFRIEND_REFUSAL}>" onclick="postform.Denial.value='1';postform.submit();" />
+</td>
+</tr>
+</table>
+</form>

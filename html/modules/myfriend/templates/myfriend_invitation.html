@@ -1,0 +1,15 @@
+<form method="post" action="index.php?action=invitation">
+<{xoops_token form=$ActionForm}>
+<table class="outer">
+<tr>
+<td class="head"><{$smarty.const._MD_MYFRIEND_INVI_MAIL}></td>
+<td class="even"><input type="text" name="email" size="50" maxlength="150" value="" /></td>
+</tr>
+<tr>
+<td class="head"><{$smarty.const._MD_MYFRIEND_AISATSU}></td>
+<td class="odd"><textarea name="note" cols="50" rows="5"></textarea></td>
+</tr>
+<tr><td colspan="2" style="text-align: center;"><input type="submit" value="<{$smarty.const._MD_MYFRIEND_SEND}>" /></td>
+</tr>
+</table>
+</form>
