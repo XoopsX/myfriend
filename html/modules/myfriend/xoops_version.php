@@ -6,7 +6,8 @@ if ( !isset($root) ) {
 
 $modversion['name'] = _MI_MYFRIEND_NAME;
 $modversion['dirname'] = basename(dirname(__FILE__));
-$modversion['version'] = 0.43;
+$modversion['version'] = 0.44;
+$modversion['detailed_version'] = '0.44.0' ;
 $modversion['description'] = _MI_MYFRIEND_NAME;
 $modversion['author'] = 'Marijuana and XOOPS Cube distribution team';
 $modversion['image'] = 'slogo.gif';

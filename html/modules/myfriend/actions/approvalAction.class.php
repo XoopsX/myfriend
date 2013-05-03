@@ -46,8 +46,10 @@ class approvalAction extends Myfriend_Abstract
         $friObj->set('friend_uid', $this->modObj->get('auid'));
         $friObj->set('utime', time());
         if ( $frihand->insert($friObj) ) {
+          $friObj = $frihand->create();
           $friObj->set('uid', $this->modObj->get('auid'));
           $friObj->set('friend_uid', $uid);
+          $friObj->set('utime', time());
           if ( !$frihand->insert($friObj) ) {
             $this->errMsg = _MD_MYFRIEND_ACTERR3;
           }
