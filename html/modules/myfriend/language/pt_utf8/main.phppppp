@@ -1,0 +1,98 @@
+<?php
+
+// Módulo traduzido para o Português do Brasil (portuguese) por
+// Leco (m_ohse@hotmail.com) URL: http://xoopersBR.com
+
+
+//define('_MD_MYFRIEND_*****', '');
+
+define('_MD_MYFRIEND_MYFRIEND_LIST', 'Lista dos meus amigos');
+define('_MD_MYFRIEND_POSTLIST', 'Lista de posts');
+
+define('_MD_MYFRIEND_APP', 'Solicitar que o {0} seja meu amigo');
+define('_MD_MYFRIEND_AISATSU', 'Mensagem');
+define('_MD_MYFRIEND_SEND', 'Enviar');
+define('_MD_MYFRIEND_FROM_APP', 'O usuário {0} está convidando você para ser seu amigo. Leia a mensagem que ele lhe enviou.');
+define('_MD_MYFRIEND_MESSAGE', 'Mensagem');
+define('_MD_MYFRIEND_MESSAGE_NOTICE', 'Sua mensagem será entregue como Mensagem Particular.');
+define('_MD_MYFRIEND_APPROVAL', 'Aceitar o convite');
+define('_MD_MYFRIEND_REFUSAL', 'Não aceitar o convite');
+define('_MD_MYFRIEND_INVITATION', 'Enviar convite a um amigo via e-mail');
+define('_MD_MYFRIEND_NOFRIEND', 'Você não tem amigos.');
+define('_MD_MYFRIEND_INVI_USER', 'Amigos convidados');
+define('_MD_MYFRIEND_NOT_INVI', 'Você não tem amigos convidados');
+define('_MD_MYFRIEND_INVI_MAIL', 'E-mail do seu amigo');
+
+define('_MD_MYFRIEND_TO_APP', 'Convidar este usuário para ser meu amigo');
+
+define('_MD_MYFRIEND_EXPLANATION', '<center><h3>Como proceder para um usuário do site ser seu Amigo</h3></center>
+<div>
+<br />
+Você dever registrar-se neste site para poder mandar uma mensagem a um usuário solicitando que ele seja seu amigo.
+<br /><br />
+Você também pode receber um convite de um usuário registrado solicitando que você seja seu amigo. Neste caso, você receberá um convite via e-mail.
+<br /><br />
+Para aceitar, clique na URL que aparecerá no e-mail ou copie a URL para a barra de endereços do seu navegador e depois e clique na tecla enter.
+<br /><br />
+Quando acessar a URL, você pode:
+<br /><br />
+Cancelar o convite ou,<br />
+Aceitar o convite.<br />
+<br /><br />
+Antes disso, por favor acesse o site e verifique se efetivamente trata-se de convite do usuário registrado.
+</div><br />
+');
+
+define('_MD_MYFRIEND_NEW', 'Você recebeu um convite de um usuário deste site');
+
+define('_MD_MYFRIEND_FORMERR1', 'Já convidado.');
+define('_MD_MYFRIEND_FORMERR2', 'O e-mail que você informou é utilizado por usuário deste site.');
+define('_MD_MYFRIEND_FORMERR3', 'É necessário especificar o assunto.');
+define('_MD_MYFRIEND_FORMERR4', 'O e-mail informado é inválido.');
+
+define('_MD_MYFRIEND_ACTERR1', 'Você não tem permissão.');
+define('_MD_MYFRIEND_ACTERR2', 'O usuário foi adicionado.');
+define('_MD_MYFRIEND_ACTERR3', 'Falha na adição aos meus amigos.');
+define('_MD_MYFRIEND_ACTERR4', 'Falha na exclusão do convite.');
+define('_MD_MYFRIEND_ACTERR5', 'Falha na adição do usuário.');
+define('_MD_MYFRIEND_ACTERR6', 'Falha na adição ao grupo.');
+define('_MD_MYFRIEND_ACTERR7', 'O usuário não existe.');
+define('_MD_MYFRIEND_ACTERR8', 'Já solicitado.');
+define('_MD_MYFRIEND_ACTERR9', 'Já adicionado.');
+define('_MD_MYFRIEND_ACTERR10', 'Falhou.');
+define('_MD_MYFRIEND_ACTERR11', 'O convite foi enviado com sucesso!');
+define('_MD_MYFRIEND_ACTERR12', 'Falhou.');
+define('_MD_MYFRIEND_ACTERR13', 'Erro.');
+define('_MD_MYFRIEND_ACTERR14', 'O convite foi aceito');
+define('_MD_MYFRIEND_ACTERR15', 'O convite não foi aceito.');
+define('_MD_MYFRIEND_ACTERR16', 'Falha na adição ao banco de dados.');
+define('_MD_MYFRIEND_ACTERR17', 'Seu convite foi enviado com sucesso!');
+define('_MD_MYFRIEND_ACTERR18', 'Convite por e-mail de {0} a {1}.');
+
+define('_MD_MYFRIEND_NOGUEST', 'Você não tem permissão.');
+define('_MD_MYFRIEND_NOUSER', 'O usuário não existe.');
+
+define('_MD_MYFRIEND_ADDFAVORITES', 'Adicionar aos favoritos');
+
+define('_MD_MYFRIEND_FAVORITES0', 'Usuário o qual esta adição não é selecionada.');
+define('_MD_MYFRIEND_FAVORITES1', 'Falho a adição');
+define('_MD_MYFRIEND_FAVORITES2', 'Adicionar');
+define('_MD_MYFRIEND_FAVORITES3', 'Falhou a atualização');
+define('_MD_MYFRIEND_FAVORITES4', 'Atualização');
+define('_MD_MYFRIEND_FAVORITES5', 'Exclusão');
+
+define('_MD_MYFRIEND_TEMPLATE0', 'Nome do usuário');
+define('_MD_MYFRIEND_TEMPLATE1', 'Ordenação');
+define('_MD_MYFRIEND_TEMPLATE2', 'Exclusão');
+
+define('_MD_MYFRIEND_DELCONF', '{0} será deletado. Você realmente deseja efetuar a exclusão?');
+define('_MD_MYFRIEND_DELOK', '{0} foi excluido.');
+define('_MD_MYFRIEND_DELNG', 'Falha na exclusão de {0}.');
+
+define('_MD_MYFRIEND_APPL_USER', 'Os usuários abaixo foram convidados para ser seu amigo');
+define('_MD_MYFRIEND_NOT_APPL', 'Não existem usuários que você convidou para ser seu amigo.');
+define('_MD_MYFRIEND_APPR_USER', 'Os usuários abaixo desejam ser seu amigoo.');
+define('_MD_MYFRIEND_NEW_NAME', '{0}');
+define('_MD_MYFRIEND_NAME', 'O usuário');
+define('_MD_MYFRIEND_DELETE', 'Excluir o usuário assinalado.');
+?>
