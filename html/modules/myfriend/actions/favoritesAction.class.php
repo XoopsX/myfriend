@@ -6,15 +6,15 @@ class favoritesAction extends Myfriend_Abstract
   var $mService;
   var $favorites;
   var $root;
-  
-  function favoritesAction()
+
+  function __construct()
   {
     $this->root = XCube_Root::getSingleton();
     $this->mService = $this->root->mServiceManager->getService('UserSearch');
     $this->setUrl('index.php?action=favorites');
     $this->execute();
   }
-  
+
   function addFavorites()
   {
     $adduid = $this->root->mContext->mRequest->getRequest('adduid');
@@ -27,13 +27,13 @@ class favoritesAction extends Myfriend_Abstract
     foreach ( $adduid as $fuid ) {
       $ret[] = $client->call('addFavorites', array('mid' => $mid, 'fuid' => $fuid, 'weight' => 0));
     }
-    if ( in_array(false, $ret) ) {
+    if (in_array(false, $ret, true)) {
       $this->errMsg = _MD_USERSEARCH_FAVORITES1;
     } else {
       $this->errMsg = _MD_USERSEARCH_FAVORITES2;
     }
   }
-  
+
   function edtFavorites()
   {
     $weight = $this->root->mContext->mRequest->getRequest('weight');
@@ -44,15 +44,15 @@ class favoritesAction extends Myfriend_Abstract
     foreach ( $weight as $id => $w ) {
       $ret[] = $client->call('edtFavorites', array('id' => $id, 'weight' => $w));
     }
-    if ( in_array(false, $ret) ) {
+    if (in_array(false, $ret, true)) {
       $this->errMsg = _MD_USERSEARCH_FAVORITES3;
       return false;
-    } else {
-      $this->errMsg = _MD_USERSEARCH_FAVORITES4;
     }
-    return true;
+
+      $this->errMsg = _MD_USERSEARCH_FAVORITES4;
+      return true;
   }
-  
+
   function delFavorites()
   {
     $delid = $this->root->mContext->mRequest->getRequest('delid');
@@ -63,27 +63,27 @@ class favoritesAction extends Myfriend_Abstract
     foreach ( $delid as $id ) {
       $ret[] = $client->call('delFavorites', array('id' => $id));
     }
-    if ( in_array(false, $ret) ) {
+    if (in_array(false, $ret, true)) {
       $this->errMsg = _MD_USERSEARCH_FAVORITES4;
     } else {
       $this->errMsg = _MD_USERSEARCH_FAVORITES5;
     }
   }
-  
+
   function getFavorites()
   {
     $mid = $this->root->mContext->mXoopsModule->get('mid');
     $client = $this->root->mServiceManager->createClient($this->mService);
     $this->favorites = $client->call('getFavoritesUsers', array('mid' => $mid));
   }
-  
+
   function execute()
   {
     if ( $this->mService == null ) {
       $this->setErr('Service Not loaded.');
       return;
     }
-    
+
     $this->root->mLanguageManager->loadModuleMessageCatalog('usersearch');
     $cmd = $this->root->mContext->mRequest->getRequest('cmd');
     if ( $cmd == "" ) {
@@ -102,7 +102,7 @@ class favoritesAction extends Myfriend_Abstract
       }
     }
   }
-  
+
   function executeView(&$render)
   {
     $render->setTemplateName('myfriend_favorites.html');
@@ -110,4 +110,3 @@ class favoritesAction extends Myfriend_Abstract
     //$render->setAttribute('listdata', $this->listdata);
   }
 }
-?>

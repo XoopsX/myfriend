@@ -4,23 +4,23 @@ if (!defined('XOOPS_ROOT_PATH')) exit();
 class ideleteAction extends Myfriend_Abstract
 {
   var $modObj = null;
-  function ideleteAction()
+  function __construct()
   {
     $root = XCube_Root::getSingleton();
-    $id = intval($root->mContext->mRequest->getRequest('id'));
-    
+    $id = (int)$root->mContext->mRequest->getRequest('id');
+
     $modhand = xoops_getmodulehandler('invitation');
     $this->modObj = $modhand->get($id);
     if ( !is_object($this->modObj) ) {
       $this->setErr(_MD_MYFRIEND_NOUSER);
       return;
     }
-    
+
     if ( $this->modObj->get('uid') != $root->mContext->mXoopsUser->get('uid') ) {
       $this->setErr(_MD_MYFRIEND_ACTERR13);
       return;
     }
-    
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if ( XoopsSingleTokenHandler::quickValidate('del') == false ) {
         $this->setErr(_MD_MYFRIEND_ACTERR13);
@@ -33,13 +33,13 @@ class ideleteAction extends Myfriend_Abstract
       }
     }
   }
-  
+
   function executeView(&$render)
   {
     $tokenHandler = new XoopsSingleTokenHandler();
     $token = $tokenHandler->create('del');
     $tokenHandler->register($token);
-    
+
     $hiddens = array('id' => $this->modObj->get('id'), 'action' => 'idelete');
     $render->setTemplateName('legacy_xoops_confirm.html');
     $render->setAttribute('legacy_module', 'legacy');
@@ -51,4 +51,4 @@ class ideleteAction extends Myfriend_Abstract
     $render->setAttribute('tokenValue', $token->getTokenValue());
   }
 }
-?>
+

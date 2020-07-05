@@ -1,16 +1,21 @@
 <?php
-if (!defined('XOOPS_ROOT_PATH')) exit();
+
+if (!defined('XOOPS_ROOT_PATH')) {
+    exit();
+}
+
 if ( !isset($root) ) {
   $root = XCube_Root::getSingleton();
 }
 
 $modversion['name'] = _MI_MYFRIEND_NAME;
-$modversion['dirname'] = basename(dirname(__FILE__));
-$modversion['version'] = 0.44;
-$modversion['detailed_version'] = '0.44.0' ;
+$modversion['dirname'] = basename(__DIR__);
+$modversion['version'] = 2.30;
+$modversion['detailed_version'] = '2.30.0' ;
 $modversion['description'] = _MI_MYFRIEND_NAME;
-$modversion['author'] = 'Marijuana and XOOPS Cube distribution team';
-$modversion['image'] = 'slogo.gif';
+$modversion['author'] = 'Marijuana, XOOPS Cube Team, updated by @Gigamaster';
+$modversion['credits'] = 'XOOPSCube Project';
+$modversion['image'] = 'images/module_myfriend.svg';
 $modversion['mcl_update'] = 'myfriend';
 
 $modversion['cube_style'] = true;
@@ -24,7 +29,7 @@ $modversion['tables'][] = '{prefix}_{dirname}_applist';
 $modversion['hasAdmin'] = 1;
 
 $modversion['hasMain'] = 1;
-if ($root->mServiceManager->getService('UserSearch') != null ) {
+if ($root->mServiceManager->getService('UserSearch') !== null ) {
   $modversion['sub'][] = array('name' => _MI_MYFRIEND_SUB_SEARCH, 'url' => 'index.php?action=search');
   $modversion['sub'][] = array('name' => _MI_MYFRIEND_SUB_FAVORITES, 'url' => 'index.php?action=favorites');
 }
@@ -63,4 +68,4 @@ $modversion['config'][1]['description'] = '_MI_MYFRIEND_DELDAYS_DESC';
 $modversion['config'][1]['formtype']    = 'textbox';
 $modversion['config'][1]['valuetype']   = 'int';
 $modversion['config'][1]['default']     = '30';
-?>
+

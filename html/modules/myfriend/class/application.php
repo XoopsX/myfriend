@@ -1,8 +1,12 @@
 <?php
-if (!defined('XOOPS_ROOT_PATH')) exit();
+
+if (!defined('XOOPS_ROOT_PATH')) {
+    exit();
+}
+
 class MyFriendApplicationObject extends XoopsSimpleObject
 {
-  function MyFriendApplicationObject()
+  function __construct()
   {
     $this->initVar('id', XOBJ_DTYPE_INT, '0', true);
     $this->initVar('uid', XOBJ_DTYPE_INT, '0', true);
@@ -14,12 +18,11 @@ class MyFriendApplicationObject extends XoopsSimpleObject
 
 class MyFriendApplicationHandler extends XoopsObjectGenericHandler
 {
-  var $mTable = 'myfriend_applist';
-  var $mPrimary = 'id';
-  var $mClass = 'MyFriendApplicationObject';
+  public $mTable = 'myfriend_applist';
+  public $mPrimary = 'id';
+  public $mClass = 'MyFriendApplicationObject';
 
-  function MyFriendInvitationHandler(&$db) {
+  public function MyFriendInvitationHandler(&$db) {
     parent::XoopsObjectGenericHandler($db);
   }
 }
-?>

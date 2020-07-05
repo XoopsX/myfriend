@@ -1,13 +1,17 @@
 <?php
-if (!defined('XOOPS_ROOT_PATH')) exit();
+
+if (!defined('XOOPS_ROOT_PATH')) {
+    exit();
+}
+
 require _MY_MODULE_PATH.'forms/myfriendregisterForm.class.php';
 
 class registAction extends Myfriend_Abstract
 {
   var $tplname;
   var $rdata = false;
-  
-  function registAction()
+
+  function __construct()
   {
     $root = XCube_Root::getSingleton();
     if ( is_object($root->mContext->mXoopsUser) ) {
@@ -23,7 +27,7 @@ class registAction extends Myfriend_Abstract
       $this->tplname ='myfriend_invitation_regist.html';
       $root->mController->setupModuleContext('user');
       $root->mLanguageManager->loadModuleMessageCatalog('user');
-      
+
       $this->_processActionForm();
       $this->mActionForm->set('timezone_offset', $root->mContext->getXoopsConfig('default_TZ'));
       $this->mActionForm->set('actkey', $actkey);
@@ -41,14 +45,14 @@ class registAction extends Myfriend_Abstract
     }
   }
   //http://localhost/21b3/modules/myfriend/index.php?action=regist&actkey=3e16af2cfc
-  
+
   function _processActionForm()
   {
     $moduleHandler = xoops_gethandler('module');
     $usermod = $moduleHandler->getByDirname('user');
     $configHandler = xoops_gethandler('config');
     $configs = $configHandler->getConfigsByCat(0, $usermod->get('mid'));
-    
+
     $this->mActionForm = new myfreendRegisterForm($configs);
     $this->mActionForm->prepare();
   }
@@ -63,4 +67,4 @@ class registAction extends Myfriend_Abstract
     $render->setAttribute('timezones', $timezones);
   }
 }
-?>
+

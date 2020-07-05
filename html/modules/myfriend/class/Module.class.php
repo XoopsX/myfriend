@@ -1,23 +1,26 @@
 <?php
-if (!defined('XOOPS_ROOT_PATH')) exit();
+if (!defined('XOOPS_ROOT_PATH')) {
+    exit();
+}
 class Myfriend_Module extends Legacy_ModuleAdapter
 {
-  function Myfriend_Module(&$xoopsModule)
-  {
-    parent::Legacy_ModuleAdapter($xoopsModule);
-  }
-  
-  function hasAdminIndex()
+
+    public function __construct($xoopsModule)
+    {
+        parent::__construct($xoopsModule);
+    }
+
+  public function hasAdminIndex()
   {
     return true;
   }
-  
-  function getAdminIndex()
+
+    public function getAdminIndex()
   {
     return XOOPS_MODULE_URL.'/'.$this->mXoopsModule->get('dirname').'/admin/index.php';
   }
-  
-  function getAdminMenu()
+
+    public function getAdminMenu()
   {
     if ($this->_mAdminMenuLoadedFlag) {
       return $this->mAdminMenu;
@@ -32,4 +35,3 @@ class Myfriend_Module extends Legacy_ModuleAdapter
     return $this->mAdminMenu;
   }
 }
-?>

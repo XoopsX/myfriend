@@ -6,15 +6,15 @@ class applicationAction extends Myfriend_Abstract
 {
   var $tplname;
   var $auser;
-  
-  function applicationAction()
+
+  function __construct()
   {
     $root = XCube_Root::getSingleton();
-    $auid = intval($root->mContext->mRequest->getRequest('auid'));
+    $auid = (int)$root->mContext->mRequest->getRequest('auid');
     $uid = $root->mContext->mXoopsUser->get('uid');
     $this->mActionForm = new Myfriendapplication_Form();
     $this->mActionForm->prepare();
-    
+
     $handler = xoops_gethandler('user');
     $this->auser = $handler->get($auid);
     if ( !is_object($this->auser) ) {
@@ -26,13 +26,13 @@ class applicationAction extends Myfriend_Abstract
       $this->setErr(_MD_MYFRIEND_ACTERR8);
       return;
     }
-    
+
     if ( $this->chk_myfriend($uid, $auid) ) {
       $this->setErr(_MD_MYFRIEND_ACTERR9);
       return;
     }
-    
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $this->mActionForm->fetch();
       $this->mActionForm->validate();
       if ($this->mActionForm->hasError()) {
@@ -52,7 +52,7 @@ class applicationAction extends Myfriend_Abstract
       $this->tplname = 'myfriend_application.html';
     }
   }
-  
+
   function chk_application($uid, $auid)
   {
     $mCriteria = new CriteriaCompo();
@@ -61,7 +61,7 @@ class applicationAction extends Myfriend_Abstract
     $ahandler = xoops_getmodulehandler('application');
     return $ahandler->getCount($mCriteria);
   }
-  
+
   function chk_myfriend($uid, $auid)
   {
     $num = 0;
@@ -71,10 +71,10 @@ class applicationAction extends Myfriend_Abstract
     $sql.= "WHERE `uid` = ".$uid;
     $sql.= " AND `friend_uid` = ".$auid;
     $result = $db->query($sql);
-    list($num) = $db->fetchRow($result);
+    [$num] = $db->fetchRow($result);
     return $num;
   }
-  
+
   function executeView(&$render)
   {
     $render->setTemplateName($this->tplname);
@@ -83,4 +83,3 @@ class applicationAction extends Myfriend_Abstract
     $render->setAttribute('titlemsg', XCube_Utils::formatString(_MD_MYFRIEND_APP, $this->auser->getShow('uname')));
   }
 }
-?>
