@@ -3,7 +3,7 @@ CREATE TABLE `{prefix}_{dirname}_friendlist` (
   `friend_uid` int(8) unsigned NOT NULL default '0',
   `utime` int(11) unsigned NOT NULL default '0',
   PRIMARY KEY  (`uid`, `friend_uid`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
 CREATE TABLE `{prefix}_{dirname}_invitation` (
   `id`    int(11) unsigned NOT NULL auto_increment,
@@ -12,7 +12,7 @@ CREATE TABLE `{prefix}_{dirname}_invitation` (
   `actkey` varchar(50) NOT NULL default '',
   `utime` int(11) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
 CREATE TABLE `{prefix}_{dirname}_applist` (
   `id`    int(11) unsigned NOT NULL auto_increment,
@@ -21,4 +21,4 @@ CREATE TABLE `{prefix}_{dirname}_applist` (
   `utime` int(11) unsigned NOT NULL default '0',
   `note` text ,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;

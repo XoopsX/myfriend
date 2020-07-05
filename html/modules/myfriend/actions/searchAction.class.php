@@ -1,5 +1,8 @@
 <?php
-if (!defined('XOOPS_ROOT_PATH')) exit();
+
+if (!defined('XOOPS_ROOT_PATH')) {
+    exit();
+}
 
 class searchAction extends Myfriend_Abstract
 {
@@ -9,20 +12,20 @@ class searchAction extends Myfriend_Abstract
   var $mPagenavi = null;
   var $root;
   var $mService;
-  
-  function searchAction()
+
+  function __construct()
   {
     $this->root = XCube_Root::getSingleton();
     $this->mService = $this->root->mServiceManager->getService('UserSearch');
     $this->execute();
   }
-  
+
   function getData($request)
   {
     $client = $this->root->mServiceManager->createClient($this->mService);
     $this->listdata = $client->call('getUserList', $request);
   }
-  
+
   function execute()
   {
     if ( $this->mService == null ) {
@@ -31,10 +34,10 @@ class searchAction extends Myfriend_Abstract
     }
     $this->root->mLanguageManager->loadModuleMessageCatalog('usersearch');
     require_once XOOPS_MODULE_PATH.'/usersearch/forms/UsersearchForm.class.php';
-    
+
     $this->mActionform = new UsersearchForm();
     $this->mActionform->prepare();
-    
+
     $this->mActionform->fetch();
     if ( $this->mActionform->get('dosearch') == 1 ) {
       $this->mActionform->validate();
@@ -53,7 +56,7 @@ class searchAction extends Myfriend_Abstract
       $this->mActionform->set('searchtype', 0);
     }
   }
-  
+
   function executeView(&$render)
   {
     $render->setTemplateName('myfriend_usersearch.html');
@@ -61,4 +64,3 @@ class searchAction extends Myfriend_Abstract
     $render->setAttribute('listdata', $this->listdata);
   }
 }
-?>

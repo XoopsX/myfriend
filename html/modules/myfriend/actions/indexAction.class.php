@@ -9,29 +9,29 @@ class indexAction extends Myfriend_Abstract
   var $listuser;
   var $mPagenavi = null;
   var $listinvi;
-  
-  function indexAction()
+
+  function __construct()
   {
     $root = XCube_Root::getSingleton();
     $uid = $root->mContext->mXoopsUser->getVar('uid');
-    
+
     $modhand = xoops_getmodulehandler('friend');
     $this->mPagenavi = new Myfriend_PageNavi($modhand);
     $this->mPagenavi->addCriteria('uid',$uid);
     $this->mPagenavi->fetch();
     $modObj = $modhand->getObjects($this->mPagenavi->getCriteria());
-    
+
     $userhand = xoops_gethandler('user');
     foreach ($modObj as $mod) {
       $this->listuser[] = $userhand->get($mod->getShow('friend_uid'));
     }
-    
+
     $modhand = xoops_getmodulehandler('invitation');
     $modhand->oldDataDelete($root->mContext->mModuleConfig['deletedays']);
     $mCriteria = new CriteriaCompo();
     $mCriteria->add(new Criteria('uid', $uid));
     $modObj = $modhand->getObjects($mCriteria);
-    
+
     foreach ($modObj as $mod) {
       foreach ( array_keys($mod->gets()) as $var_name ) {
         $item_ary[$var_name] = $mod->getShow($var_name);
@@ -40,7 +40,7 @@ class indexAction extends Myfriend_Abstract
       $this->listinvi[] = $item_ary;
     }
   }
-  
+
   function executeView(&$render)
   {
     $render->setTemplateName('myfriend_index.html');
@@ -49,4 +49,3 @@ class indexAction extends Myfriend_Abstract
     $render->setAttribute('invidata', $this->listinvi);
   }
 }
-?>
