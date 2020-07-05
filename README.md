@@ -1,39 +1,61 @@
-﻿# MyFriend
-mixiのマイミク機能のような機能を持たせることができるモジュールです。
+## Module MyFriend
 
-招待機能とマイミク機能があります。
-招待機能で登録するグループを選ぶことが出来るので、招待グループとXCubeの通常登録でグループを分けることが可能です。
-XCubeのユーザ登録を禁止することで、招待されないとユーザ登録出来ないように出来ます。
+### Description  
 
-userinfo.phpの動作を変更しています。
-XCubeのuserモジュールのテンプレートとは違う物(templates/myfriend_userinfo.html)が表示されます。
+The module implements an invitation feature, and a list of friends.  
+Since you can select the group to register with the invitation function, 
+it is possible to separate the invitation group from the normal registration of XCube.
+You can prevent XCube user registration unless there is an invitation.
 
-招待者へ送信されるメールの雛型はlanguage/言語/invitation.tplですので適当に書き換えてください。
+### Custom User Template  
+
+A template of userinfo.php is also available that implements MyFriend features.  
+The XCube default template can be replaced with _"templates/myfriend_userinfo.html"_
+
+### Custom Email Template  
+
+The module also features a template to send email invitations :  
+_language/language/invitation.tpl_
+So, you can edit and rewrite it appropriately.
+
+### Integration  
+
+- Module Private Message  
+- Module Pico  
+
+---
+### Changelog  
+
+ver2.30: Refactor code to XCL - PHP7 and MySQL ENGINE=InnoDB  
+
+---
+Ver0.44: Fixed a bug that the approval of friend application is not reflected in the friend list of the applicant.
+
+Ver0.42: Fixed that the delete link was not displayed even if the user allowed to delete  
+
+Ver0.41: Modified to delete data from myfriend_friendlist when deleting users
+
+Ver0.40: Set the number of days to automatically delete invitations on the management screen
+        Invited users can be arbitrarily deleted
+        Fixed typo of block file name
+        Fixed block disappeared in PHP4
+
+Ver0.32: Invitation automatically deleted after 30 days
+        Using Module.class.php
+
+Ver0.31: Abolition of meaningless references
+        Changed some require to require_once
+
+Ver0.30: Supports favorite users
+
+Ver0.20: Supports Usersearch module
+
+Ver0.13: Changed to give access right to all groups at installation
+        Changed not to register delegate except registered user
+        Other minor changes
 
 
-Ver0.42:ユーザ自身の削除許可しても削除リンクが表示されなかったのを修正
-Ver0.41:ユーザ削除時にmyfriend_friendlistからデータ削除するように修正
+### ToDo  
 
-Ver0.40:招待の自動削除日数を管理画面で設定
-        招待者をユーザの任意削除
-        ブロックファイル名のtypo修正
-        ブロックがPHP4で表示されなくなったのを修正
-
-Ver0.32:30日過ぎた招待を自動削除
-        Module.class.phpの利用
-
-Ver0.31:無意味な参照の廃止
-        一部のrequireをrequire_onceに変更
-
-Ver0.30:お気に入りユーザ対応
-
-Ver0.20:Usersearchモジュール対応
-
-Ver0.13:インストール時に全グループへアクセス権を付与するように変更
-        登録ユーザ以外では、デリゲートを登録しないように変更
-        その他少々変更
-
-
-ToDo
-ブロックの修正及び追加
-
+- Modify and add blocks
+- Modify templates to XCL default UI
