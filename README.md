@@ -1,3 +1,39 @@
+[![UTD powered-by-electricity](http://ForTheBadge.com/images/badges/powered-by-electricity.svg)](https://github.com/xoopscube)
+[![UTD](https://forthebadge.com/images/badges/built-with-love.svg)](https://github.com/xoopscube/myfriend)
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/2.0.0/active.svg)](https://github.com/xoopscube/)
+![License GPL](https://img.shields.io/badge/License-GPL-green)
+![X-Updare Store](https://img.shields.io/badge/X--Update%20Store-Pending-red)
+
+## ///// — MyFriend :: module for handling invitations and list of friends
+
+![alt text](https://repository-images.githubusercontent.com/347963527/8c04d798-5562-4443-8e55-656298649231)
+
+
+MODULE | MyFriend
+------------ | -------------
+Description | This module allows users to register an account using an invite
+Render Engine | Smarty v2 and XCube Layout
+Version | 2.3.1
+Update | Naoki Okino @naao - Nuno Luciano @gigamaster XCL23
+Author | Original by Marijuana and XOOPSCube Team
+Copyright | 2012-2022 Authors
+License | GPL
+
+
+##### :computer: The Minimum Requirements
+
+
+
+          Apache, Nginx, etc. PHP 7.2.x
+          MySQL 5.6, MariaDB  InnoDB utf8 / utf8mb4
+          XCL version 2.3.+
+
+
+
+-----
+
+
 ## Module MyFriend
 
 ### Description  
