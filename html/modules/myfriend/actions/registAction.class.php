@@ -11,18 +11,21 @@ class registAction extends Myfriend_Abstract
   var $tplname;
   var $rdata = false;
 
+
+
   function __construct()
   {
     $root = XCube_Root::getSingleton();
     if ( is_object($root->mContext->mXoopsUser) ) {
       $this->setErr(_MD_MYFRIEND_ACTERR1);
       return;
-    }
+  }
     $actkey = $root->mContext->mRequest->getRequest('actkey');
     $modhand = xoops_getmodulehandler('invitation');
     $mCriteria = new CriteriaCompo();
     $mCriteria->add(new Criteria('actkey', $actkey));
     $modObj = $modhand->getObjects($mCriteria);
+
     if ( count($modObj) == 1 ) {
       $this->tplname ='myfriend_invitation_regist.html';
       $root->mController->setupModuleContext('user');
@@ -32,7 +35,7 @@ class registAction extends Myfriend_Abstract
       $this->mActionForm->set('timezone_offset', $root->mContext->getXoopsConfig('default_TZ'));
       $this->mActionForm->set('actkey', $actkey);
       $this->mActionForm->delete_session();
-      if  (xoops_getenv("REQUEST_METHOD") == "POST") {
+      if (xoops_getenv("REQUEST_METHOD") == "POST") {
         $this->mActionForm->fetch();
         $this->mActionForm->validate();
         if (!$this->mActionForm->hasError()) {

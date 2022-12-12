@@ -13,6 +13,11 @@ define('_MD_MYFRIEND_AISATSU', 'あいさつ文');
 define('_MD_MYFRIEND_SEND', '送信');
 define('_MD_MYFRIEND_FROM_APP', '{0}さんからのマイフレンド申請');
 define('_MD_MYFRIEND_MESSAGE', 'メッセージ');
+define('_MD_MYFRIEND_MESSAGE_INVITE', '会員になってください。
+他のメンバーとメッセージやコンテンツ、最新情報を交換することができます。
+以下のリンクから、アカウントを作成するための登録ページに移動します。
+よろしくお願いします。
+');
 define('_MD_MYFRIEND_MESSAGE_NOTICE', 'メッセージのある場合、相手にPMで届きます。');
 define('_MD_MYFRIEND_APPROVAL', '承認');
 define('_MD_MYFRIEND_REFUSAL', '拒否');

@@ -29,9 +29,14 @@
     <{xoops_input name=uname value=$actionForm->get('uname') maxlength=25}>
     </label>
 
-    <label for="email"><{$smarty.const._MD_USER_LANG_EMAIL}>
-    <{xoops_input name=email size=30 value=$actionForm->get('email') maxlength=60}>
+    <label for="email">
+        <{$smarty.const._MD_USER_LANG_EMAIL}>
+        <{* xoops_input id="email" name=email size=30 maxlength=60 value=$actionForm->get('email') *}>
+        <input type="email" name="email" size="30" maxlength="60" value="<{$actionForm->get('email')}>"
+               autocomplete="email"
+               pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$">
     </label>
+
     <fieldset>
     <label for="user_viewemail">
         <{xoops_input type=checkbox name=user_viewemail value=1 default=$actionForm->get('user_viewemail')}>

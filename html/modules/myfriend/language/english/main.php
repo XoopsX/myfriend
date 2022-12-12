@@ -13,6 +13,12 @@ define('_MD_MYFRIEND_AISATSU', 'Message');
 define('_MD_MYFRIEND_SEND', 'Send');
 define('_MD_MYFRIEND_FROM_APP', 'MyFriend Request From {0}');
 define('_MD_MYFRIEND_MESSAGE', 'Message');
+define('_MD_MYFRIEND_MESSAGE_INVITE', 'Dear friend,  
+I am delighted to invite you to become a member today. 
+Where we can safely exchange messages, content, and updates with other users. 
+The link below will take you to the registration page, where you can create your account. 
+Best regards,
+');
 define('_MD_MYFRIEND_MESSAGE_NOTICE', 'Direct message will be sent via Private Message.');
 define('_MD_MYFRIEND_APPROVAL', 'Accept');
 define('_MD_MYFRIEND_REFUSAL', 'Refuse');
@@ -25,8 +31,7 @@ define('_MD_MYFRIEND_INVI_MAIL', 'Friend\'s E-mail');
 define('_MD_MYFRIEND_TO_APP', 'MyFriend Request');
 
 define('_MD_MYFRIEND_EXPLANATION', '<h4>About Registration with Invites</h4>
-<p>
-On this site, as for you in order to register, it is necessary to be invited.<br>
+<p>You need an invitation to register.<br>
 When you receive the invitation email, click on the registration URL in the email,<br> 
 or copy the URL into your browser\'s address bar.
 </p>
@@ -75,7 +80,7 @@ define('_MD_MYFRIEND_NOUSER', 'User doesn\'t exist.');
 
 define('_MD_MYFRIEND_ADDFAVORITES', 'Add favorites');
 
-define('_MD_MYFRIEND_FAVORITES0', 'The user which it adds is not selected.');
+define('_MD_MYFRIEND_FAVORITES0', 'The user is not selected.');
 define('_MD_MYFRIEND_FAVORITES1', 'Add failed');
 define('_MD_MYFRIEND_FAVORITES2', 'Add');
 define('_MD_MYFRIEND_FAVORITES3', 'Update failed');

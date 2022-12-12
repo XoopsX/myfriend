@@ -6,7 +6,7 @@
 <article>
 
     <header>
-        <div class="headings">    
+        <div class="headings">
         <h3><{$smarty.const._MD_MYFRIEND_TITLE}></h3>
         <div><{$smarty.const._MD_MYFRIEND_DESC}></div>
         </div>
@@ -15,7 +15,7 @@
     <nav class="pagination"><{xoops_pagenavi pagenavi=$pageNavi}></nav>
 
     <{if $ListData}>
-    
+
     <h4><{$smarty.const._MD_MYFRIEND_MYFRIEND_LIST}></h4>
 
     <div class="flex-col">
@@ -23,7 +23,7 @@
             <{foreach item=item from=$ListData}>
             <li>
                 <a href="<{$xoops_url}>/userinfo.php?uid=<{$item->get('uid')}>">
-                    <img src="<{$item->get('uid')|xoops_user_avatarize}>" width="20px" height="20px" alt="avatar"> 
+                    <img src="<{$item->get('uid')|xoops_user_avatarize}>" width="20px" height="20px" alt="avatar">
                     <{$item->get('uname')|xoops_escape}>
                 </a>
             </li>
@@ -38,21 +38,23 @@
     <div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>
 
     <hr>
-
     <{if $invidata}>
 
     <h4><{$smarty.const._MD_MYFRIEND_INVI_USER}></h4>
-    
+
+    <div class="alert warning">
+        <{$smarty.const._MI_MYFRIEND_DELDAYS_DESC}> <span class="badge"><{$invitexpire}></span>
+    </div>
+
     <div class="flex-col">
-        <ul>
-            <{foreach item=invi from=$invidata}>
-            <li>
-                <{$invi.email}>
-                <span class="badge"><{$invi.formattedDate}></span>
-                <a href="index.php?action=idelete&amp;id=<{$invi.id}>"><{$smarty.const._DELETE}></a>
-            </li>
-            <{/foreach}>
-        </ul>
+        <{foreach item=invi from=$invidata}>
+        <p>
+            <img class="svg mail-send" src="<{$xoops_url}>/images/icons/mail-send.svg" width="1em" height="1em" alt="mail-send"> <{$invi.email}> <span class="badge"><{$invi.formattedDate}></span>
+            <a href="index.php?action=idelete&amp;id=<{$invi.id}>" data-tooltip="<{$smarty.const._DELETE}>">
+                <img class="svg delete" src="<{$xoops_url}>/images/icons/delete.svg" width="1em" height="1em" alt="delete">
+            </a>
+        </p>
+        <{/foreach}>
     </div>
     <{else}>
     <div class="alert info"><{$smarty.const._MD_MYFRIEND_NOT_INVI}></div>

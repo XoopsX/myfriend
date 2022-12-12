@@ -8,16 +8,18 @@
 
 <article>
 
-    <h3>Step >> invite </h3>
+    <h3><{$smarty.const._MD_MYFRIEND_INVITATION}></h3>
 
-    <label>
-    <{$smarty.const._MD_MYFRIEND_INVI_MAIL}>
-    <input type="text" name="email" size="50" maxlength="150" value="">
+    <label for="email">
+        <{$smarty.const._MD_MYFRIEND_INVI_MAIL}>
+        <input type="email" name="email" size="30" maxlength="60" value=""
+               autocomplete="email"
+               pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$">
     </label>
 
     <label>
     <{$smarty.const._MD_MYFRIEND_AISATSU}>
-    <textarea name="note" cols="50" rows="5"></textarea>
+    <textarea name="note" cols="50" rows="5"><{$smarty.const._MD_MYFRIEND_MESSAGE_INVITE}></textarea>
     </label>
 
     <footer>

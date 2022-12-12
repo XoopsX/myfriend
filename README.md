@@ -62,6 +62,16 @@ So, you can edit and rewrite it appropriately.
 ---
 ### Changelog  
 
+ver2.31: Update to XCL Package  
+
+ - Avatar
+ - Constructors
+ - Static call
+ - Language index and desc
+ - Language invite note sample
+ - Templates PicoCSS
+
+
 ver2.30: Refactor code to XCL - PHP7 and MySQL ENGINE=InnoDB  
 
 ---
