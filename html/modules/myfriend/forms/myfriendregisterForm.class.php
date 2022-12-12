@@ -95,7 +95,7 @@ class myfreendRegisterForm extends User_AbstractUserEditForm
 
     function get_session()
     {
-        if (isset($_SESSION['MYFRIEND'])) {
+        if ( isset($_SESSION['MYFRIEND']) ) {
             return $_SESSION['MYFRIEND'];
         }
     }

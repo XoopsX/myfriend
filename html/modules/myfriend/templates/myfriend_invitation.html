@@ -1,15 +1,29 @@
+<{* Dev-Mode Toggle *}>
+<{if $xoops_isadmin}><div class="ui-dev-mode"><{$smarty.template}></div><{/if}>
+
+<{include file="db:myfriend_inc_breadcrumbs.html"}>
+
 <form method="post" action="index.php?action=invitation">
-<{xoops_token form=$ActionForm}>
-<table class="outer">
-<tr>
-<td class="head"><{$smarty.const._MD_MYFRIEND_INVI_MAIL}></td>
-<td class="even"><input type="text" name="email" size="50" maxlength="150" value="" /></td>
-</tr>
-<tr>
-<td class="head"><{$smarty.const._MD_MYFRIEND_AISATSU}></td>
-<td class="odd"><textarea name="note" cols="50" rows="5"></textarea></td>
-</tr>
-<tr><td colspan="2" style="text-align: center;"><input type="submit" value="<{$smarty.const._MD_MYFRIEND_SEND}>" /></td>
-</tr>
-</table>
+    <{xoops_token form=$ActionForm}>
+
+<article>
+
+    <h3>Step >> invite </h3>
+
+    <label>
+    <{$smarty.const._MD_MYFRIEND_INVI_MAIL}>
+    <input type="text" name="email" size="50" maxlength="150" value="">
+    </label>
+
+    <label>
+    <{$smarty.const._MD_MYFRIEND_AISATSU}>
+    <textarea name="note" cols="50" rows="5"></textarea>
+    </label>
+
+    <footer>
+    <input role="button" type="submit" value="<{$smarty.const._MD_MYFRIEND_SEND}>">
+    </footer>
+
+</article>
+
 </form>

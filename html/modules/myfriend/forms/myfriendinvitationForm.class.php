@@ -12,12 +12,13 @@ class Myfriendinvitation_Form extends XCube_ActionForm
 
     function __construct()
     {
+// parent::XCube_ActionForm(); //
         parent::__construct();
     }
 
     function validateEmail()
     {
-        if ($this->get('email') !== '') {
+         if (strlen($this->get('email')) > 0) { //if ($this->get('email') !== '') {
             $modhand = xoops_getmodulehandler('invitation');
             $criteria = new CriteriaCompo(new Criteria('email', $this->get('email')));
             if ($modhand->getCount($criteria) > 0) {

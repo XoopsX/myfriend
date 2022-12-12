@@ -30,7 +30,7 @@ class invitationAction extends Myfriend_Abstract
         $this->mActionForm->validate();
         if ($this->mActionForm->hasError()) {
           $this->isError = true;
-          $this->errMsg = implode('<br />',$this->mActionForm->getErrorMessages());
+          $this->errMsg = implode('<br>',$this->mActionForm->getErrorMessages());
           return;
         }
         $this->mActionForm->set_session();
@@ -49,11 +49,14 @@ class invitationAction extends Myfriend_Abstract
 
   function send_email()
   {
-    require_once XOOPS_ROOT_PATH.'/class/mail/phpmailer/class.phpmailer.php';
-    require_once XOOPS_ROOT_PATH.'/modules/legacy/lib/Mailer/Mailer.php';
+    // todo gigamaster update phpmailer
+    //require_once XOOPS_ROOT_PATH.'/class/mail/phpmailer/class.phpmailer.php'; 
+      require XOOPS_ROOT_PATH .'/class/mail/phpmailer/src/PHPMailer.php';
+      require XOOPS_ROOT_PATH.'/modules/legacy/lib/Mailer/Mailer.php';
 
     $root = XCube_Root::getSingleton();
     $subject = XCube_Utils::formatString(_MD_MYFRIEND_ACTERR18, $root->mContext->mXoopsUser->get('uname'), $root->mContext->mXoopsConfig['sitename']);
+    // TODO FIX Test echo $subject = Invitation mail from webmaster to XCL Web Application Platform.
 
     $tpl = new Smarty();
     $tpl->_canUpdateFromFile = true;
@@ -72,10 +75,10 @@ class invitationAction extends Myfriend_Abstract
     $mailer = new Legacy_Mailer();
     $mailer->prepare();
     $mailer->setFrom($root->mContext->mXoopsConfig['adminmail']);
-    $mailer->setFromname($root->mContext->mXoopsConfig['sitename']);
+    $mailer->setFromName($root->mContext->mXoopsConfig['sitename']);
     $mailer->setTo($this->mActionForm->get_session('email'), "");
     $mailer->setSubject($subject);
     $mailer->setBody($body);
-    $mailer->Send();
+    $mailer->send();
   }
 }

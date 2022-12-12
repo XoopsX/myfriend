@@ -1,13 +1,24 @@
-<h4><{$titlemsg}></h4>
+<{* Dev-Mode Toggle *}>
+<{if $xoops_isadmin}><div class="ui-dev-mode"><{$smarty.template}></div><{/if}>
+
+<{include file="db:myfriend_inc_breadcrumbs.html"}>
+
 <form method="post" action="index.php?action=application">
-<{xoops_token form=$ActionForm}>
-<input type="hidden" name="auid" value="<{$auser->get('uid')}>" />
-<table class="outer">
-<tr>
-<td class="head"><{$smarty.const._MD_MYFRIEND_AISATSU}></td>
-<td class="odd"><textarea name="note" cols="50" rows="5"></textarea></td>
-</tr>
-<tr><td colspan="2" style="text-align: center;"><input type="submit" value="<{$smarty.const._MD_MYFRIEND_SEND}>" /></td>
-</tr>
-</table>
+
+<article>
+
+    <h4><{$titlemsg}></h4>
+
+    <{xoops_token form=$ActionForm}>
+    <input type="hidden" name="auid" value="<{$auser->get('uid')}>"/>
+
+    <label>
+    <{$smarty.const._MD_MYFRIEND_AISATSU}>
+    <textarea name="note" cols="50" rows="5"></textarea>
+    </label>
+
+    <input class="primary" type="submit" value="<{$smarty.const._MD_MYFRIEND_SEND}>">
+
+</article>
+
 </form>

@@ -3,24 +3,29 @@
 if (!defined('XOOPS_ROOT_PATH')) {
     exit();
 }
-
+$dirname   = basename(__DIR__); // basename( dirname( __FILE__ ) );
 if ( !isset($root) ) {
   $root = XCube_Root::getSingleton();
 }
+// Manifesto
+$modversion['dirname']          = $dirname;
+$modversion['trust_dirname']    = null;
+$modversion['name']             = _MI_MYFRIEND_NAME;
+$modversion['version']          = '2.31';
+$modversion['detailed_version'] = '2.31.0';
+$modversion['description']      = _MI_MYFRIEND_NAME;
+$modversion['author']           = 'Marijuana, XOOPS Cube Team, updated by @Gigamaster';
+$modversion['credits']          = 'XOOPSCube Project';
+$modversion['license']          = 'GPL';
+$modversion['image']            = '/images/module_myfriend.svg';
+$modversion['icon']             = 'images/module_icon.svg';
+$modversion['help']             = 'help.html';
+$modversion['official']         = 0;
+$modversion['cube_style']       = true;
+$modversion['read_any']         = true;
+$modversion['mcl_update'] = 'myfriend'; /* keep or remove it ? */
 
-$modversion['name'] = _MI_MYFRIEND_NAME;
-$modversion['dirname'] = basename(__DIR__);
-$modversion['version'] = 2.30;
-$modversion['detailed_version'] = '2.30.0' ;
-$modversion['description'] = _MI_MYFRIEND_NAME;
-$modversion['author'] = 'Marijuana, XOOPS Cube Team, updated by @Gigamaster';
-$modversion['credits'] = 'XOOPSCube Project';
-$modversion['image'] = 'images/module_myfriend.svg';
-$modversion['mcl_update'] = 'myfriend';
-
-$modversion['cube_style'] = true;
-$modversion['read_any'] = true;
-
+// SQL
 $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
 $modversion['tables'][] = '{prefix}_{dirname}_friendlist';
 $modversion['tables'][] = '{prefix}_{dirname}_invitation';
@@ -29,7 +34,7 @@ $modversion['tables'][] = '{prefix}_{dirname}_applist';
 $modversion['hasAdmin'] = 1;
 
 $modversion['hasMain'] = 1;
-if ($root->mServiceManager->getService('UserSearch') !== null ) {
+if ($root->mServiceManager->getService('UserSearch') != null ) {
   $modversion['sub'][] = array('name' => _MI_MYFRIEND_SUB_SEARCH, 'url' => 'index.php?action=search');
   $modversion['sub'][] = array('name' => _MI_MYFRIEND_SUB_FAVORITES, 'url' => 'index.php?action=favorites');
 }
@@ -45,6 +50,7 @@ $modversion['templates'][] = array('file' => 'myfriend_application.html', 'descr
 $modversion['templates'][] = array('file' => 'myfriend_approval.html', 'description' => '');
 $modversion['templates'][] = array('file' => 'myfriend_usersearch.html', 'description' => '');
 $modversion['templates'][] = array('file' => 'myfriend_favorites.html', 'description' => '');
+$modversion['templates'][] = array('file' => 'myfriend_inc_breadcrumbs.html', 'description' => '');
 
 $modversion['blocks'][0]['file'] = 'myfriend_block.class.php';
 $modversion['blocks'][0]['name'] = _MI_MYFRIEND_BLOCK_NAME;
@@ -68,4 +74,3 @@ $modversion['config'][1]['description'] = '_MI_MYFRIEND_DELDAYS_DESC';
 $modversion['config'][1]['formtype']    = 'textbox';
 $modversion['config'][1]['valuetype']   = 'int';
 $modversion['config'][1]['default']     = '30';
-

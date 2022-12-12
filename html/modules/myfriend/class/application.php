@@ -21,8 +21,8 @@ class MyFriendApplicationHandler extends XoopsObjectGenericHandler
   public $mTable = 'myfriend_applist';
   public $mPrimary = 'id';
   public $mClass = 'MyFriendApplicationObject';
-
-  public function MyFriendInvitationHandler(&$db) {
-    parent::XoopsObjectGenericHandler($db);
+    public function __construct(&$db) {
+  //public function MyFriendInvitationHandler(&$db) {
+    parent::__construct($db);
   }
 }

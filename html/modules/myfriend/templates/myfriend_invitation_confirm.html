@@ -1,16 +1,30 @@
+<{* Dev-Mode Toggle *}>
+<{if $xoops_isadmin}><div class="ui-dev-mode"><{$smarty.template}></div><{/if}>
+
+<{include file="db:myfriend_inc_breadcrumbs.html"}>
+
 <form method="post" action="index.php?action=invitation">
-<{xoops_token form=$ActionForm}>
-<input type="hidden" name="cmd" value="send" />
-<table class="outer">
-<tr>
-<td class="head"><{$smarty.const._MD_MYFRIEND_INVI_MAIL}></td>
-<td class="even"><{$ActionForm->get('email')}></td>
-</tr>
-<tr>
-<td class="head"><{$smarty.const._MD_MYFRIEND_AISATSU}></td>
-<td class="odd"><{$ActionForm->get('note')|xoops_escape|nl2br}></td>
-</tr>
-<tr><td colspan="2" style="text-align: center;"><input type="submit" value="<{$smarty.const._MD_MYFRIEND_SEND}>" /></td>
-</tr>
-</table>
+    <{xoops_token form=$ActionForm}>
+    <input type="hidden" name="cmd" value="send">
+
+<article>
+
+    <h3>Step >> invite >> confirm</h3>
+
+    <label class="grid-2">
+    <{$smarty.const._MD_MYFRIEND_INVI_MAIL}>
+    <input type="text" value="<{$ActionForm->get('email')}>" readonly>
+    </label>
+
+    <label>
+    <{$smarty.const._MD_MYFRIEND_AISATSU}>
+    <textarea readonly><{$ActionForm->get('note')|xoops_escape|nl2br}></textarea>
+    </label>
+
+    <footer>
+    <input type="submit" value="<{$smarty.const._MD_MYFRIEND_SEND}>">
+    </footer>
+
+</article>
+
 </form>

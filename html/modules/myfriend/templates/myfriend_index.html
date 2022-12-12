@@ -1,33 +1,65 @@
-<div>
-<input type="button" value="<{$smarty.const._MD_MYFRIEND_INVITATION}>" style="color:#FFFFFF; background-color:#000053;" onclick="javascript:location.href='index.php?action=invitation'" />
-</div>
-<hr />
-<div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>
-<br />
-<{if $ListData}>
-<div class="head"><{$smarty.const._MD_MYFRIEND_MYFRIEND_LIST}></div>
-<div class="odd">
-<ul>
-<{foreach item=item from=$ListData}>
-<li><a href="<{$xoops_url}>/userinfo.php?uid=<{$item->get('uid')}>"><{$item->get('uname')|xoops_escape}></a></li>
-<{/foreach}>
-</ul>
-</div>
-<{else}>
-<div class="outer even"><{$smarty.const._MD_MYFRIEND_NOFRIEND}></div>
-<{/if}>
-<br />
-<div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>
-<hr />
-<{if $invidata}>
-<div class="head"><{$smarty.const._MD_MYFRIEND_INVI_USER}></div>
-<div class="even">
-<ul>
-<{foreach item=invi from=$invidata}>
-<li><{$invi.email}>&nbsp;(<{$invi.formattedDate}>)&nbsp;&nbsp;<a href="index.php?action=idelete&amp;id=<{$invi.id}>"><{$smarty.const._DELETE}></a></li>
-<{/foreach}>
-</ul>
-</div>
-<{else}>
-<div class="outer even"><{$smarty.const._MD_MYFRIEND_NOT_INVI}></div>
-<{/if}>
+<{* Dev-Mode Toggle *}>
+<{if $xoops_isadmin}><div class="ui-dev-mode"><{$smarty.template}></div><{/if}>
+
+<{include file="db:myfriend_inc_breadcrumbs.html"}>
+
+<article>
+
+    <header>
+        <div class="headings">    
+        <h3><{$smarty.const._MD_MYFRIEND_TITLE}></h3>
+        <div><{$smarty.const._MD_MYFRIEND_DESC}></div>
+        </div>
+    </header>
+
+    <nav class="pagination"><{xoops_pagenavi pagenavi=$pageNavi}></nav>
+
+    <{if $ListData}>
+    
+    <h4><{$smarty.const._MD_MYFRIEND_MYFRIEND_LIST}></h4>
+
+    <div class="flex-col">
+        <ul>
+            <{foreach item=item from=$ListData}>
+            <li>
+                <a href="<{$xoops_url}>/userinfo.php?uid=<{$item->get('uid')}>">
+                    <img src="<{$item->get('uid')|xoops_user_avatarize}>" width="20px" height="20px" alt="avatar"> 
+                    <{$item->get('uname')|xoops_escape}>
+                </a>
+            </li>
+            <{/foreach}>
+        </ul>
+    </div>
+
+    <{else}>
+    <div class="alert info"><{$smarty.const._MD_MYFRIEND_NOFRIEND}></div>
+    <{/if}>
+
+    <div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>
+
+    <hr>
+
+    <{if $invidata}>
+
+    <h4><{$smarty.const._MD_MYFRIEND_INVI_USER}></h4>
+    
+    <div class="flex-col">
+        <ul>
+            <{foreach item=invi from=$invidata}>
+            <li>
+                <{$invi.email}>
+                <span class="badge"><{$invi.formattedDate}></span>
+                <a href="index.php?action=idelete&amp;id=<{$invi.id}>"><{$smarty.const._DELETE}></a>
+            </li>
+            <{/foreach}>
+        </ul>
+    </div>
+    <{else}>
+    <div class="alert info"><{$smarty.const._MD_MYFRIEND_NOT_INVI}></div>
+    <{/if}>
+
+    <footer>
+        <input type="button" class="primary" value="<{$smarty.const._MD_MYFRIEND_INVITATION}>" onclick="location.href='index.php?action=invitation'">
+    </footer>
+
+</article>

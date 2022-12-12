@@ -13,7 +13,8 @@ class Myfriendapproval_Form extends XCube_ActionForm
 
     function __construct()
     {
-        parent::XCube_ActionForm();
+        //parent::XCube_ActionForm();
+        parent::__construct();
     }
 
     function getTokenName()

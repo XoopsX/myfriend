@@ -15,4 +15,3 @@ $root->mController->execute();
 
 define('XOOPS_FOOTER_INCLUDED',1);
 $root->mController->executeView();
-?>

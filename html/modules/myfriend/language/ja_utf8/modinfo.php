@@ -15,4 +15,3 @@ define('_MI_MYFRIEND_BLOCK_NAME', '新着ブロック');
 
 define('_MI_MYFRIEND_SUB_SEARCH', 'ユーザ検索');
 define('_MI_MYFRIEND_SUB_FAVORITES', 'お気に入り');
-?>

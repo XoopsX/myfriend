@@ -9,7 +9,8 @@ class Myfriendapplication_Form extends XCube_ActionForm
 
     function __construct()
     {
-        parent::XCube_ActionForm();
+        //parent::XCube_ActionForm();
+        parent::__construct();
     }
 
     function getTokenName()
@@ -22,7 +23,7 @@ class Myfriendapplication_Form extends XCube_ActionForm
         $this->mFormProperties['note'] = new XCube_TextProperty('note');
         $this->mFormProperties['auid'] = new XCube_IntProperty('auid');
     }
-
+// TODO should be compatible with XCube_ActionForm::load(&$obj
     function load($auid)
     {
         $this->set('auid', $auid);

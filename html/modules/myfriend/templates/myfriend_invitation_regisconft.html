@@ -1,23 +1,27 @@
+<{* Dev-Mode Toggle *}>
+<{if $xoops_isadmin}><div class="ui-dev-mode"><{$smarty.template}></div><{/if}>
+
+<{include file="db:myfriend_inc_breadcrumbs.html"}>
+
 <form action="index.php?action=register" method="post">
-<{xoops_token form=$actionForm}>
-<table width="100%" class="outer">
-  <tr>
-    <td class="head"><{$smarty.const._MD_USER_LANG_NICKNAME}></td>
-    <td class="<{cycle values="odd,even"}>">
-      <{$actionForm->get('uname')|xoops_escape}>
-    </td>
-  </tr>
-  <tr>
-    <td class="head"><{$smarty.const._MD_USER_LANG_EMAIL}></td>
-    <td class="<{cycle values="odd,even"}>">
-      <{$actionForm->get('email')|xoops_escape}>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" class="foot" style="text-align:center;">
-      <input type="submit" value="<{$smarty.const._MD_USER_LANG_FINISH}>" />
-      <input type="button" name="confirm_back" value="<{$smarty.const._CANCEL}>"  onclick="location.href='index.php?action=regist&amp;actkey=<{$actionForm->get('actkey')|xoops_escape}>'" />
-    </td>
-  </tr>
-</table>
+    <{xoops_token form=$actionForm}>
+
+<article>
+
+    <label class="grid-2">
+    <{$smarty.const._MD_USER_LANG_NICKNAME}>
+    <input type="text" value="<{$actionForm->get('uname')|xoops_escape}>" readonly>
+    </label>
+
+    <label class="grid-2">
+    <{$smarty.const._MD_USER_LANG_EMAIL}>
+    <input type="text" value="<{$actionForm->get('email')|xoops_escape}>">
+    </label>
+
+    <footer class="action-control">
+    <input type="button" class="outline" name="confirm_back" value="<{$smarty.const._CANCEL}>" onclick="location.href='index.php?action=regist&amp;actkey=<{$actionForm->get('actkey')|xoops_escape}>'">
+    <input type="submit" value="<{$smarty.const._MD_USER_LANG_FINISH}>">
+    </footer>
+
+</article>
 </form>

@@ -9,6 +9,8 @@ class MyFriend_PageNavigator extends XCube_PageNavigator
 {
     public function __construct($url, $flags = XCUBE_PAGENAVI_START)
     {
+        // TODO @gigamaster parent construct
+        parent::__construct($url);
         $this->mUrl = $url;
         $this->mFlags = $flags;
         $this->mGetTotalItems = new XCube_Delegate();

@@ -2,7 +2,7 @@
 
 class MyfriendFunction
 {
-    function userinfo()
+    public static function userinfo()
     {
         $root = XCube_Root::getSingleton();
         $root->mController->executeHeader();
@@ -25,7 +25,7 @@ class MyfriendFunction
         require $fileName;
 
         $Action = new Myfriend_UserInfoAction($controller);
-        if ($Action->getisError()) {
+        if ( $Action->getisError() ) {
             $controller->executeRedirect(XOOPS_URL . '/', 2, $Action->geterrMsg());
         } else {
             $Action->executeView($controller->mRoot->mContext->mModule->getRenderTarget());
